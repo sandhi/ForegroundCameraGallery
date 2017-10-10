@@ -202,7 +202,7 @@ public class ForegroundCameraLauncher extends CordovaPlugin implements MediaScan
 
         // Display camera
 //        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        Intent intent = new Intent(this.cordova.getActivity().getApplicationContext(), CameraActivity.class);
+        Intent intent = new Intent(this.cordova.getActivity().getApplicationContext(), CamerasActivity.class);
 
         // Specify file so that large image is captured and returned
         File photo = createCaptureFile(encodingType);
@@ -455,7 +455,7 @@ public class ForegroundCameraLauncher extends CordovaPlugin implements MediaScan
             }
         }
     }
-    
+
     public class RotateTask extends AsyncTask<Void, Void, Bitmap> {
         private WeakReference<Bitmap> rotateBitmap;
         private Bitmap inputBitmap;
@@ -495,7 +495,7 @@ public class ForegroundCameraLauncher extends CordovaPlugin implements MediaScan
 
     private void returnImageToProcess(Bitmap bitmap, int srcType, int destType, Intent intent, int rotate) {
         Uri uri = intent.getData();
-        
+
         if (destType == DATA_URL) {
             processPicture(bitmap);
         }
@@ -548,7 +548,7 @@ public class ForegroundCameraLauncher extends CordovaPlugin implements MediaScan
         }
         System.gc();
     }
-    
+
     private int getImageOrientation(Uri uri) {
         String[] cols = { MediaStore.Images.Media.ORIENTATION };
         Cursor cursor = cordova.getActivity().getContentResolver().query(uri,

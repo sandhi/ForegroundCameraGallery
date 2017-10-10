@@ -45,9 +45,9 @@ import android.widget.ZoomControls;
 /**
  * Camera Activity Class. Configures Android camera to take picture and show it.
  */
-public class CameraActivity extends Activity {
+public class CamerasActivity extends Activity {
 
-	private static final String TAG = "CameraActivity";
+	private static final String TAG = "CamerasActivity";
 
 	private Camera mCamera;
 	private CameraPreview mPreview;
@@ -96,7 +96,7 @@ public class CameraActivity extends Activity {
 
 		FrameLayout preview = (FrameLayout) findViewById(getResources().getIdentifier("camera_preview", "id", getPackageName()));
 		preview.addView(mPreview);
-		
+
 		// Add a listener to the Capture button
 		ImageButton captureButton = (ImageButton) findViewById(getResources().getIdentifier("button_capture", "id", getPackageName()));
 		captureButton.setOnClickListener(new View.OnClickListener() {
@@ -251,7 +251,7 @@ public class CameraActivity extends Activity {
 
 	/**
 	 * Performs required action to accommodate new orientation
-	 * 
+	 *
 	 * @param orientation
 	 * @param lastOrientation
 	 */
@@ -264,13 +264,13 @@ public class CameraActivity extends Activity {
 			// mBackButton.setImageDrawable(getRotatedImage(android.R.drawable.ic_menu_revert,
 			// 270));
 			params.setRotation(90);
-			Log.v("CameraActivity", "Orientation = 90");
+			Log.v("CamerasActivity", "Orientation = 90");
 			break;
 		case ORIENTATION_LANDSCAPE_NORMAL:
 			// mSnapButton.setImageResource(android.R.drawable.ic_menu_camera);
 			// mBackButton.setImageResource(android.R.drawable.ic_menu_revert);
 			params.setRotation(0);
-			Log.v("CameraActivity", "Orientation = 0");
+			Log.v("CamerasActivity", "Orientation = 0");
 			break;
 		case ORIENTATION_PORTRAIT_INVERTED:
 			// mSnapButton.setImageDrawable(getRotatedImage(android.R.drawable.ic_menu_camera,
@@ -278,7 +278,7 @@ public class CameraActivity extends Activity {
 			// mBackButton.setImageDrawable(getRotatedImage(android.R.drawable.ic_menu_revert,
 			// 90));
 			params.setRotation(270);
-			Log.v("CameraActivity", "Orientation = 270");
+			Log.v("CamerasActivity", "Orientation = 270");
 			break;
 		case ORIENTATION_LANDSCAPE_INVERTED:
 			// mSnapButton.setImageDrawable(getRotatedImage(android.R.drawable.ic_menu_camera,
@@ -286,7 +286,7 @@ public class CameraActivity extends Activity {
 			// mBackButton.setImageDrawable(getRotatedImage(android.R.drawable.ic_menu_revert,
 			// 180));
 			params.setRotation(180);
-			Log.v("CameraActivity", "Orientation = 180");
+			Log.v("CamerasActivity", "Orientation = 180");
 			break;
 		}
 	}
